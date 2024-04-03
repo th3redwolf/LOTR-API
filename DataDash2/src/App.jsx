@@ -26,8 +26,6 @@ function App() {
         fetchQuotes().catch(console.error);
     }, []);
 
-
-
     useEffect(() => {
         const fetchCharacters = async () => {
             const response = await fetch('https://the-one-api.dev/v2/character', 
@@ -38,8 +36,6 @@ function App() {
     
         fetchCharacters().catch(console.error);
     }, []);
-
-
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -56,8 +52,6 @@ function App() {
         setSearch(event);
         console.log(search);
     }
-
-
 
     /*const [list, setList] = useState(null);
 
@@ -98,13 +92,8 @@ function App() {
     fetchData().catch(console.error);
   }, []) */
 
-
-
   return (
     <div>
-        <div>
-            <NavBar/>
-        </div>
         <div className="container-row">
             <div className="card">
                 <h2 className="box">LOTR Characters</h2>
@@ -117,6 +106,7 @@ function App() {
             </div>
         </div>
       <div className="table">
+        <div className="sticky">
         <label htmlFor="search">Search quotes </label>
         <input
             type="text"
@@ -132,6 +122,7 @@ function App() {
             <option value="Hobbit">Hobbit</option>
             <option value="Maiar">Maiar / Wizard</option>
         </select>
+        </div>
           <table>
               <thead className="table-header">
                   <tr>

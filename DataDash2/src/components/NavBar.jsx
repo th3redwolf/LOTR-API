@@ -1,19 +1,16 @@
 import React from 'react';
-import Desktop from './Desktop'
+import {Outlet, Link } from 'react-router-dom';
+import Desktop from './Desktop';
 
 const NavBar = () => {
 
     return (
-
-        <div className="navbar">
+        <nav>
             <h1>The Lord of the Rings</h1>
-            <div className="desktop">
-                <Desktop
-                
-                />
-               
-            </div>
-        </div>
+            <Link style={{color: "white"}}className="home-link" to="/">
+                Home to the Shire
+            </Link>
+        </nav>
     )
 }
 
