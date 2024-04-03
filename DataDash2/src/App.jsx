@@ -1,6 +1,7 @@
 import React from 'react';
-import { useState, useEffect } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react';
+import './App.css';
+import { Link } from 'react-router-dom';
 import NavBar from './components/NavBar'
 
 // import md5 from 'md5'
@@ -146,7 +147,7 @@ function App() {
                         const movie = movies.find(movie => movie._id === quote.movie);
                         return (
                             <tr key={index} className="rows">
-                                <td>{character.name}</td>
+                                <td><Link to={`/info/${character._id}`}>{character.name}</Link></td>
                                 <td>{characterQuotes.length}</td>
                                 <td>{quote.dialog}</td>
                                 <td>{movie ? movie.name : 'No movie available for this qote'}</td>
@@ -157,7 +158,7 @@ function App() {
                         const movie = movies.find(movie => movie._id === randomQuote.movie);
                         return (
                           <tr key={character._id} className="rows">
-                            <td>{character.name}</td>
+                            <td><Link to={`/info/${character._id}`}>{character.name}</Link></td>
                             <td>{characterQuotes.length}</td>
                             <td>{randomQuote ? randomQuote.dialog : 'No quotes available for this character'}</td>
                             <td>{movie ? movie.name : 'No movie available for this quote'}</td>
