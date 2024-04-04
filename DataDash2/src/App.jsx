@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './App.css';
 import { Link } from 'react-router-dom';
-import NavBar from './components/NavBar'
+import loadingGif from "../IMG_9207.jpg";
 
 // import md5 from 'md5'
 
@@ -15,6 +15,7 @@ function App() {
     const [movies, setMovies] = useState([]);
     const [race, setRace] = useState("");
     const [search, setSearch] = useState("");
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
 
@@ -31,6 +32,7 @@ function App() {
             const json3 = await response3.json();
 
             setQuotes([...json1.docs, ...json2.docs, ...json3.docs]);
+            setLoading(false);
         }
 
         fetchQuotes().catch(console.error);
@@ -42,6 +44,7 @@ function App() {
             {headers: {'Authorization': `Bearer ${API_KEY}`}});
             const json = await response.json();
             setCharacters(json.docs);
+            setLoading(false);
         }
     
         fetchCharacters().catch(console.error);
@@ -53,6 +56,7 @@ function App() {
             {headers: {'Authorization': `Bearer ${API_KEY}`}});
             const json = await response.json();
             setMovies(json.docs);
+            setLoading(false);
         }
 
         fetchMovies().catch(console.error);
@@ -63,44 +67,15 @@ function App() {
         console.log(search);
     }
 
-    /*const [list, setList] = useState(null);
-
-    const fetchBooks = async () => {
-        const responseTitles = await fetch('https://the-one-api.dev/v2/book', 
-        {headers: {'Authorization': `Bearer ${API_KEY}`}});
-        const jsonTitles = await responseTitles.json();
-        const titles = jsonTitles.docs;
-
-    }
-    
-*/
-
-    /*
-   useEffect (() => {
-
-    const fetchData = async () => {
-
-        setList(allData);
-        console.log(list);
-    }
-    fetchData().catch(console.error);
-  }, []) */
-
-  /*useEffect (() => {
-
-    const fetchData = async () => {
-
-        const ts = new Date().getTime();
-        const hash = md5(ts + PRIVATE_KEY + PUBLIC_KEY);
-        const response = await fetch(`http://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`);
-        const json = await response.json();
-
-        console.log(`ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`);
-        console.log(json);
-        setList(json);
-    }
-    fetchData().catch(console.error);
-  }, []) */
+    // if(loading){
+    //     return (
+    //         <div>
+    //             <div className="loading">Loading ..</div>
+    //             <br></br>
+    //             <img style={{width: '300px', height: '200px'}} src={loadingGif} alt=".. Loading" />
+    //         </div>
+    //     )
+    // }
 
   return (
     <div>
@@ -143,7 +118,15 @@ function App() {
                   </tr>
               </thead>
               <tbody>
-                  {characters
+                {loading ? (
+                    <tr>
+                        <td colSpan="4">
+                            <div className="loading">Loading ..</div>
+                            <img style={{width: '350px', height: '400px'}} src={loadingGif} alt=".. Loading" />
+                        </td>
+                    </tr>
+                ) : (
+                   characters
                     .filter(character => character.name.toLowerCase().includes(search.toLowerCase()))
                     .filter(character => race === '' || character.race === race)
                     .map((character) => {
@@ -175,7 +158,7 @@ function App() {
                         );
                       })()
                       
-                  })}
+                  }))}
               </tbody>
           </table>
       </div>
@@ -184,3 +167,43 @@ function App() {
 }
 
 export default App;
+
+
+    /*const [list, setList] = useState(null);
+
+    const fetchBooks = async () => {
+        const responseTitles = await fetch('https://the-one-api.dev/v2/book', 
+        {headers: {'Authorization': `Bearer ${API_KEY}`}});
+        const jsonTitles = await responseTitles.json();
+        const titles = jsonTitles.docs;
+
+    }
+    
+*/
+
+    /*
+   useEffect (() => {
+
+    const fetchData = async () => {
+
+        setList(allData);
+        console.log(list);
+    }
+    fetchData().catch(console.error);
+  }, []) */
+
+  /*useEffect (() => {
+
+    const fetchData = async () => {
+
+        const ts = new Date().getTime();
+        const hash = md5(ts + PRIVATE_KEY + PUBLIC_KEY);
+        const response = await fetch(`http://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`);
+        const json = await response.json();
+
+        console.log(`ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`);
+        console.log(json);
+        setList(json);
+    }
+    fetchData().catch(console.error);
+  }, []) */

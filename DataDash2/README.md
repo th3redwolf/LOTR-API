@@ -1,27 +1,24 @@
-# Web Development Project 5 - *DataDashboard1 - Lord of Rings quotes*
+# Web Development Project 6 - *DataDash2 LOTR*
 
 Submitted by: **Nicolas Kraft**
 
-This web app: **Displays Lord of Rings Movie quotes of characters + user can search for all quotes of any character + user can filter characterss by race**
+This web app: **Lord of the Rings Characters and their movie quotes. Including Detailed Character Info Route (Page) with 2 Bar Charts (Movie revenue + Academy awards). + previous features: Search bar + filter list**
 
-Time spent: **7** hours spent in total
+Time spent: **10** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [X] **The list displays a list of data fetched using an API call**
-- [X] **Data uses the useEffect React hook and async/await syntax**
-- [X] **The app dashboard includes at least three summary statistics about the data such as**
-  - [X] *Number of quotes, Characters Race, Movie quote appearance*
-- [X] **A search bar allows the user to search for an item in the fetched data**
-- [X] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
+- [X] **The app includes at least one unique chart developed using the fetched data that tell an interesting story**
+- [X] **Clicking on an item in the list view displays more details about it**
+- [X] **Clicking on an item has a direct, unique link to that item's detail view page**
+
 
 The following **optional** features are implemented:
 
-- [ ] Multiple filters can be applied simultaneously
-- [ ] Filters use different input types such as a text input, a selection, or a slider
-- [ ] The user can enter specific bounds for filter values
+- [ ] The site's customized dashboard contains more content that explains what is interesting about the data
+- [ ] The site allows users to toggle between different data visualizations
 
 The following **additional** features are implemented:
 
@@ -31,11 +28,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](./HW5.gif)
-
-## Notes
-
-Describe any challenges encountered while building the app.
+![Video Walkthrough](./HW6.gif)
 
 ## License
 
