@@ -53,12 +53,7 @@ body {
     background-position: center;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-  }
+
 
 nav {
     height: 15%;
@@ -87,17 +82,18 @@ nav {
     align-items: stretch;
     position: relative;
     padding: 15px;
+    top: -30px;
     flex-wrap: nowrap;
   }
 
   .card {
-    margin-top: 18%;
+    margin-top: 22%;
     box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.5);
     background-color: rgba(146, 150, 144, 0.507);
   }
 
   .table {
-    margin-top: 5%;
+    margin-top: 1px;
     box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.5);
     background-color: rgba(146, 150, 144, 0.764);
     overflow: auto;

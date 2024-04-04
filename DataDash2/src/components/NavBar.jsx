@@ -1,6 +1,6 @@
 import React from 'react';
 import {Outlet, Link } from 'react-router-dom';
-import Desktop from './Desktop';
+import Chart from './Chart';
 
 const NavBar = () => {
 

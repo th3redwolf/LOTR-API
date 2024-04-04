@@ -97,13 +97,13 @@ function App() {
     <div>
         <div className="container-row">
             <div className="card">
-                <h2 className="box">LOTR Characters</h2>
+                <h3 className="box">LOTR Characters</h3>
             </div>
             <div className="card">
-                <h2 className="box">Quotes</h2>
+                <h3 className="box">Quotes</h3>
             </div>
             <div className="card">
-                <h2 className="box">Movie Appearance</h2>
+                <h3 className="box">Movie Appearance</h3>
             </div>
         </div>
       <div className="table">
@@ -147,7 +147,7 @@ function App() {
                         const movie = movies.find(movie => movie._id === quote.movie);
                         return (
                             <tr key={index} className="rows">
-                                <td><Link to={`/info/${character._id}`}>{character.name}</Link></td>
+                                <td><Link style={{color: "white"}} to={`/info/${character._id}`}>{character.name}</Link></td>
                                 <td>{characterQuotes.length}</td>
                                 <td>{quote.dialog}</td>
                                 <td>{movie ? movie.name : 'No movie available for this qote'}</td>
@@ -158,7 +158,7 @@ function App() {
                         const movie = movies.find(movie => movie._id === randomQuote.movie);
                         return (
                           <tr key={character._id} className="rows">
-                            <td><Link to={`/info/${character._id}`}>{character.name}</Link></td>
+                            <td><Link style={{color: "white"}} to={`/info/${character._id}`}>{character.name}</Link></td>
                             <td>{characterQuotes.length}</td>
                             <td>{randomQuote ? randomQuote.dialog : 'No quotes available for this character'}</td>
                             <td>{movie ? movie.name : 'No movie available for this quote'}</td>

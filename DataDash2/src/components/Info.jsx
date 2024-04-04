@@ -1,5 +1,7 @@
 import React, {Component, useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import {BarChart, Bar, CartesianGrid, XAxis, YAxis, Tooltip, Label} from "recharts";
+import Chart from "./Chart";
 
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
@@ -66,8 +68,8 @@ const Info = () => {
                         <td>{fullDetails.character[0].height}</td>
                     </tr>
                     <tr>
-                        <th></th>
-                        <td></td>
+                        <th>Hair</th>
+                        <td>{fullDetails.character[0].hair}</td>
                     </tr>
                     <tr>
                         <th></th>
@@ -83,6 +85,9 @@ const Info = () => {
                     </tr>
                 </tbody>
             </table>
+            <Chart
+                fullDetails={fullDetails}
+            />
         </div>
     )
 }
