@@ -17,11 +17,20 @@ function App() {
     const [search, setSearch] = useState("");
 
     useEffect(() => {
+
         const fetchQuotes = async () => {
-            const response = await fetch('https://the-one-api.dev/v2/quote', 
+            const response1 = await fetch('https://the-one-api.dev/v2/quote?page=1', 
             {headers: {'Authorization': `Bearer ${API_KEY}`}});
-            const json = await response.json();
-            setQuotes(json.docs);
+            const response2 = await fetch('https://the-one-api.dev/v2/quote?page=2', 
+            {headers: {'Authorization': `Bearer ${API_KEY}`}});
+            const response3 = await fetch('https://the-one-api.dev/v2/quote?page=3', 
+            {headers: {'Authorization': `Bearer ${API_KEY}`}});
+
+            const json1 = await response1.json();
+            const json2 = await response2.json();
+            const json3 = await response3.json();
+
+            setQuotes([...json1.docs, ...json2.docs, ...json3.docs]);
         }
 
         fetchQuotes().catch(console.error);

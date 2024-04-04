@@ -2,6 +2,7 @@ import React, {Component, useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {BarChart, Bar, CartesianGrid, XAxis, YAxis, Tooltip, Label} from "recharts";
 import Chart from "./Chart";
+import loadingGif from "../../loading.gif";
 
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
@@ -32,7 +33,7 @@ const Info = () => {
             console.log(quotesJson);  // Add this
             console.log(movJson);
 
-            setFullDetails({"character": charsJson.docs, "quotes": quotesJson.docs, "movies": movJson.docs});
+            setFullDetails({"character": charsJson.docs, "quotes": quotesJson, "movies": movJson.docs});
             setLoading(false);
         }
         allDetails().catch(console.error);
@@ -41,27 +42,41 @@ const Info = () => {
     if(loading){
         return (
             <div>
-                Loading ..
+                <div className="loading">Loading ..</div>
+                <br></br>
+                <img style={{width: '300px', height: '200px'}} src={loadingGif} alt=".. Loading" />
             </div>
         )
     }
 
+    const randomQuote = fullDetails.quotes.docs[Math.floor(Math.random() * fullDetails.quotes.docs.length)];
+    // <td>{randomQuote ? randomQuote.dialog : 'No quotes available for this character'}</td>
+    // const randomQuote = characterQuotes[Math.floor(Math.random() * characterQuotes.length)];
     return (
-        <div>
+        <div className="info-page">
             <h1>{fullDetails.character[0].name}</h1>
             <table className="info-table">
                 <tbody>
                     <tr>
-                        <th>More Detailed Info</th>
-                        <td><a href={fullDetails.character[0].wikiUrl} target="_blank" rel="noopener noreferrer">{fullDetails.character[0].wikiUrl}</a></td>
+                        <th>More Info</th>
+                        <td style={{paddingLeft: "25px"}}>
+                            <a href={fullDetails.character[0].wikiUrl} target="_blank" rel="noopener noreferrer" style={{color: "black"}}>
+                            {fullDetails.character[0].wikiUrl}
+                            </a>
+                        </td>
+                    </tr>
+                    <br></br>
+                    <tr>
+                        <th>Race</th>
+                        <td>{fullDetails.character[0].race}</td>
                     </tr>
                     <tr>
                         <th>Birthdate</th>
                         <td>{fullDetails.character[0].birth}</td>
                     </tr>
                     <tr>
-                        <th>Race</th>
-                        <td>{fullDetails.character[0].race}</td>
+                        <th>Gender</th>
+                        <td>{fullDetails.character[0].gender}</td>
                     </tr>
                     <tr>
                         <th>Height</th>
@@ -72,12 +87,12 @@ const Info = () => {
                         <td>{fullDetails.character[0].hair}</td>
                     </tr>
                     <tr>
-                        <th></th>
-                        <td></td>
+                        <th>Total Quotes</th>
+                        <td>{fullDetails.quotes.total}</td>
                     </tr>
                     <tr>
-                        <th></th>
-                        <td></td>
+                        <th>Random Quote</th>
+                        <td>{randomQuote ? randomQuote.dialog : "NO"}</td>
                     </tr>
                     <tr>
                         <th></th>

@@ -7,7 +7,7 @@ const NotFound = () => {
             <div className="return404">
                 <p style={{color: "rgb(255, 102, 102)", fontSize: "2em"}}>We have wandered to the Depth of Moria</p>
                 <Link style={{color: "whitesmoke", fontSize: "1.5em", textDecoration: "underlined"}} to="/">
-                    Return safely to Home to the Shire
+                    Return safely Home to the Shire
                 </Link>
             </div>
         </div>
