@@ -1,36 +1,24 @@
-# Web Development Project 6 - *DataDash2 LOTR*
+# Web Development Project - *LOTR API*
 
-Submitted by: **Nicolas Kraft**
+This web app: **Lord of the Rings Characters and their movie quotes. Including Detailed Character Info Route (Page) with 2 Bar Charts (Movie revenue + Academy awards). + features: Search bar + filter list**
 
-This web app: **Lord of the Rings Characters and their movie quotes. Including Detailed Character Info Route (Page) with 2 Bar Charts (Movie revenue + Academy awards). + previous features: Search bar + filter list**
+## Features
 
-Time spent: **10** hours spent in total
-
-## Required Features
-
-The following **required** functionality is completed:
-
-- [X] **The app includes at least one unique chart developed using the fetched data that tell an interesting story**
+- [X] **The list displays a list of LOTR data fetched using an API call**
+- [X] **Data uses the useEffect React hook and async/await syntax**
+- [X] **The app dashboard includes summary statistics about the data such as**
+    - [X] *Number of quotes, Characters Race, Movie quote appearance*
+- [X] **A search bar allows the user to search for an item in the fetched data**
+- [X] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
+- [X] **The app includes two unique charts developed using the fetched data**
 - [X] **Clicking on an item in the list view displays more details about it**
 - [X] **Clicking on an item has a direct, unique link to that item's detail view page**
 
-
-The following **optional** features are implemented:
-
-- [ ] The site's customized dashboard contains more content that explains what is interesting about the data
-- [ ] The site allows users to toggle between different data visualizations
-
-The following **additional** features are implemented:
-
-* [ ] List anything else that you added to improve the site's functionality!
-
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+![Video Walkthrough](./LOTR API/HW6.gif)
 
-![Video Walkthrough](./DataDash2/HW6.gif)
-
-![Video Walkthrough](./HW5.gif)
+![Video Walkthrough](./LOTR API/HW5.gif)
 
 ## License
 
