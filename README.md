@@ -16,9 +16,9 @@ This web app: **Lord of the Rings Characters and their movie quotes. Including D
 
 ## Video Walkthrough
 
-![Video Walkthrough](./LOTR API/HW6.gif)
+![Video Walkthrough](./LOTR%20API/HW6.gif)
 
-![Video Walkthrough](./LOTR API/HW5.gif)
+![Video Walkthrough](./LOTR%20API/HW5.gif)
 
 ## License
 
